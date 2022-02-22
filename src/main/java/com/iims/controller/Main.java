@@ -31,10 +31,10 @@ public class Main extends HttpServlet {
 
         try {
             if (session.getAttribute("buttonName") == null) {
-                List <Quest> quests = quest.getRand10Quest();
-                for (Quest q: quests) {
-                    System.out.println(q);
-                }
+//                List <Quest> quests = quest.getRand10Quest();
+//                for (Quest q: quests) {
+//                    System.out.println(q);
+//                }
                 session.setAttribute("quests", quest.getRand10Quest());
                 session.setAttribute("buttonName", "Submit");
             }
