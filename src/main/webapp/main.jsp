@@ -25,7 +25,12 @@
               <div><input type="radio" name="${question.id}" value="${question.optionThree}" required>
                 <label>${question.optionThree}</label></div>
             </div>
+
+            <c:if test="${points > 0}">
+              <p class="pt-2">Ans : <i class="text-success">${question.correctAns}</i></p>
+            </c:if>
           </div>
+
         </c:forEach>
 
       </div>

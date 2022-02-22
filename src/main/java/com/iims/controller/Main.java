@@ -22,7 +22,10 @@ public class Main extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.setAttribute("username", req.getParameter("username"));
-        session.setAttribute("points", 0);
+
+        if(session.getAttribute("points")== null) {
+            session.setAttribute("points", 0);
+        }
 
         QuestDao quest = new QuestDaoImpl();
 
@@ -57,6 +60,6 @@ public class Main extends HttpServlet {
 
         session.setAttribute("points", points);
 
-        resp.sendRedirect("main");
+        resp.sendRedirect("main?username=" + session.getAttribute("username"));
     }
 }
